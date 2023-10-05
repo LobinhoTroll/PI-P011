@@ -20,9 +20,11 @@ srand(time(0));
 
 int* intercala(int *vet1, int tam1, int *vet2, int tam2){
     int tam3 = tam1 + tam2;
-    int vet3[tam3] = {};
+    int *vet3;
     int pos1 = 0;
     int pos2 = 0;
+
+    vet3 = (int*) malloc(tam3 * sizeof(int));
 
     for (int i = 0; i < tam3; i++)
     {
@@ -44,9 +46,10 @@ int* intercala(int *vet1, int tam1, int *vet2, int tam2){
             pos1++;
         }
     }
+    return vet3;
 }
 
-int tam1,tam2;
+int tam1,tam2,tam4;
 
 int main(){
 
@@ -56,8 +59,16 @@ int main(){
     cout << "Informe o tamanho do segundo vetor: ";
     cin >> tam2;
     int vet2[tam2] = {};
+    tam4 = tam1 + tam2;
+    int* vet4;
 
     preencheVetor(vet1,tam1,vet2,tam2);
-    intercala(vet1,tam1,vet2,tam2);
+    vet4 = intercala(vet1,tam1,vet2,tam2);
 
+    for (int i = 0; i < tam4; i++)
+    {
+        cout << vet4[i] << endl;
+    }
+    
+    
 }
