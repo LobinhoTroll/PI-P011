@@ -70,5 +70,5 @@ int main(){
         cout << vet4[i] << endl;
     }
     
-    
+    return 0;
 }
