@@ -26,25 +26,29 @@ int* intercala(int *vet1, int tam1, int *vet2, int tam2){
 
     vet3 = (int*) malloc(tam3 * sizeof(int));
 
-    for (int i = 0; i < tam3; i++)
+    for (int i = 0; i < tam3;)
     {
-        if ( i % 2 == 0){
-            vet3[i] = vet1[pos1];    
-            pos1++;
-        }else{
-            vet3[i] = vet1[pos2];    
-            pos2++;
-        }
-        if (vet1[pos1] == NULL)
-        {
+        
+        vet3[i] = vet1[pos1];    
+        pos1++;
+        i++;
+        vet3[i] = vet2[pos2];
+        pos2++;
+        i++;
+        
+        if (pos1 >= tam1)
+        {    
             vet3[i] = vet2[pos2];
             pos2++;
+            i++;    /* code */
         }
-        if (vet2[pos2] == NULL)
-        {
+        if (pos2 >= tam2)
+        {    
             vet3[i] = vet1[pos1];
             pos1++;
-        }
+            i++;    /* code */
+        }    
+    
     }
     return vet3;
 }
